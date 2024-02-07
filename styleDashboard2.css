@@ -33,3 +33,7 @@ textarea{
 .applicant{
     display: none;
 }
+#inputBranche{
+    width: 80%;
+    text-align: center;
+}

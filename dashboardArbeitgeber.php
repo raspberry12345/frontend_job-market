@@ -40,7 +40,33 @@
         <form id="form">
             <label for="branche">Branche</label>
             <br>
-            <input type="text" name="branche" id="branche">
+            <select name="branche" id="inputBranche" >
+                        
+                <option value="agrar">Agrarwirtschaft</option>
+                <option value="bau">Bau</option>
+                <option value="chemie">Chemie, Rohstoffe</option>
+                <option value="dienstleistung">Dienstleistung</option>
+                <option value="e-commerce">E-Commerce</option>
+                <option value="energie">Energie, Umwelt</option>
+                <option value="finanz">Finanzen, Versicherung</option>
+                <option value="freizeit">Freizeit</option>
+                <option value="gesellschaft">Gesellschaft</option>
+                <option value="handel">Handel</option>
+                <option value="internet">Internet</option>
+                <option value="immobilien">Immobilien</option>
+                <option value="konsum">Konsum</option>
+                <option value="leben">Leben</option>
+                <option value="medien">Medien</option>
+                <option value="metall">Metall, Elektronik</option>
+                <option value="gesundheit">Pharma, Gesundheit</option>
+                <option value="personalwesen">Personalwesen</option>
+                <option value="fitness">Sport, Fitness</option>
+                <option value="informationstechnologie">Telekommunikation, IT</option>
+                <option value="tourismus">Tourismus</option>
+                <option value="verkehr">Verkehr, Logistik</option>
+                <option value="werbung">Werbung, Marketing</option>
+                <option value="wirtschaft">Wirtschaft, Politik</option>
+            </select>
             <br>
             <label for="berufsbezeichnung">Berufsbezeichnung</label>
             <br>
