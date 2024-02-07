@@ -51,7 +51,7 @@ showFavoriteBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
 
     //main-content
-    fetch('http://localhost:8080/api/praktikum'+"?email="+email, {
+    fetch('http://localhost:8080/api/favorite'+"?email="+email, {
         method: 'GET',
         
       })

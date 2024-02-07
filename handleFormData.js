@@ -1,5 +1,5 @@
 const form = document.getElementById("form")
-
+/*
 const branche = document.getElementById("branche")
 const berufsbezeichnung = document.getElementById("berufsbezeichnung")
 const bezirk = document.getElementById("bezirk")
@@ -7,7 +7,7 @@ const anforderungen = document.getElementById("anforderungen")
 const aufgabenbereich = document.getElementById("aufgabenbereich")
 const benefits = document.getElementById("benefits")
 const bezahlung = document.getElementById("bezahlung")
-
+*/
 
 
 
