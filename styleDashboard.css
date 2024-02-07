@@ -15,7 +15,7 @@ h2{
     align-items: center;
 }
 button{
-    width: 20rem;
+    width: 17rem;
     
     background-color: white;
     color: #3498db;
@@ -35,4 +35,19 @@ button{
 }
 #logout{
     color: black;
+}
+#lname{
+    width: 12rem;
+}
+#searchBtn{
+    width: 12rem;
+}
+.showAllfavorite{
+    display: none;
+}
+.applications{
+    display: none;
+}
+.applicationDocuments{
+    display: none;
 }

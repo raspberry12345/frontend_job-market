@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleDashboard.css">
+    <link rel="stylesheet" href="styleDashboard2.css">
     <title>Dashboard</title>
 </head>
 <body>
 
     <h2><span class="material-symbols-outlined">
 mail
-</span><?php echo " ".$_SESSION['email'] ?></h2>
+</span ><span id="email"><?php echo " ".$_SESSION['email'] ?></span></h2>
 
     <div id="nav">
         
@@ -30,7 +31,7 @@ mail
         
         <button id="showApplicationBtn">Bewerbungen</button>
         
-        <button id="applicationDocuments">Bewerbungs-unterlagen</button>
+        <button id="applicationDocumentsBtn">Bewerbungs-unterlagen</button>
         
         <a href="logout.php" id="logout">abmelden</a>
     </div>     
@@ -88,23 +89,23 @@ mail
 
                         if (!strcmp($_GET['branche'],"alle")) {
                             
-                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `praktikum` where bezirk=:district');
+                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `internships` where district=:district');
                             $stmt->bindValue(':district', $_GET['district']);
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $countTotal = ceil($result[0]["count"]/5);
-                            $stmt = $pdo->prepare('SELECT * FROM `praktikum` where bezirk = :district ORDER BY `id` DESC Limit :offset, :perPage ');
+                            $stmt = $pdo->prepare('SELECT * FROM `internships` where district = :district ORDER BY `id` DESC Limit :offset, :perPage ');
                             $stmt->bindParam(':district', $_GET['district']);
                             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
                             $stmt->bindValue(':perPage', $perPage, PDO::PARAM_INT);
                         }else{
-                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `praktikum` where branche=:branche and bezirk=:district');
+                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `internships` where industry=:branche and district=:district');
                             $stmt->bindValue(':branche', $_GET['branche']);
                             $stmt->bindValue(':district', $_GET['district']);
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $countTotal = ceil($result[0]["count"]/5);
-                            $stmt = $pdo->prepare('SELECT * FROM `praktikum` where branche=:branche and bezirk=:district ORDER BY `id` DESC ');
+                            $stmt = $pdo->prepare('SELECT * FROM `internships` where industy=:branche and district=:district ORDER BY `id` DESC ');
                             $stmt->bindValue(':branche', $_GET['branche']);
                             $stmt->bindValue(':district', $_GET['district']);
                            
@@ -114,23 +115,23 @@ mail
                     elseif (!empty($_GET['branche']) and empty($_GET['district'])) {
                         
                         if (!strcmp($_GET['branche'],"alle")) {
-                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `praktikum`');
+                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `internships`');
                         
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $countTotal = ceil($result[0]["count"]/5);
-                            $stmt = $pdo->prepare('SELECT * FROM `praktikum` ORDER BY `id` DESC Limit :offset, :perPage');
+                            $stmt = $pdo->prepare('SELECT * FROM `internships` ORDER BY `id` DESC Limit :offset, :perPage');
                         
                             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
                             $stmt->bindValue(':perPage', $perPage, PDO::PARAM_INT);
                         }else{
                             
-                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `praktikum` where branche=:branche');
+                            $stmt = $pdo->prepare('SELECT count(id) as `count` FROM `internships` where industry=:branche');
                             $stmt->bindValue(':branche', $_GET['branche']);
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $countTotal = ceil($result[0]["count"]/5);
-                            $stmt = $pdo->prepare('SELECT * FROM `praktikum` where branche=:branche ORDER BY `id` DESC Limit :offset, :perPage ');
+                            $stmt = $pdo->prepare('SELECT * FROM `internships` where industry=:branche ORDER BY `id` DESC Limit :offset, :perPage ');
                             $stmt->bindValue(':branche', $_GET['branche']);
                             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
                             $stmt->bindValue(':perPage', $perPage, PDO::PARAM_INT);
@@ -151,8 +152,20 @@ mail
                     echo "</ul>";
                 }
             ?>
+    </div>
+    <div class="showAllfavorite">
+        <h2>Merkliste</h2>
+    </div>
+
+    <div class="applications">
+        <h2>Bewerbungen</h2>
+    </div>
+
+    <div class="applicationDocuments">
+        <h2>Bewerbungsunterlagen</h2>
+    </div>
     <script src="controller.js"></script>
-    <script src="navigation.js"></script>
+    <script src="navigation2.js"></script>
     
     
 </body>

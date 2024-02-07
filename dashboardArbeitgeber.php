@@ -20,8 +20,8 @@
 <body>
 
     <h2><span class="material-symbols-outlined">
-    mail
-    </span><span id="email"><?php echo $_SESSION['email'] ?></span></h2>
+    mail </span>
+    <span id="email"><?php echo $_SESSION['email'] ?></span></h2>
 
     <div id="nav">
         

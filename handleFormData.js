@@ -7,11 +7,13 @@ const anforderungen = document.getElementById("anforderungen")
 const aufgabenbereich = document.getElementById("aufgabenbereich")
 const benefits = document.getElementById("benefits")
 const bezahlung = document.getElementById("bezahlung")
-const email = document.getElementById("email").innerText
 
 
 
 
+if (document.getElementById("email") != null) {
+  const email = document.getElementById("email")
+}
 
 
 
@@ -27,7 +29,7 @@ form.addEventListener("submit", (e)=>{
     const formData = new FormData(form)
     const url = 'http://localhost:8080/api/praktikum';
     
-    formData.append("email", email)
+    formData.append("email", email.innerText)
 fetch(url, {
   method: 'POST',
   headers: {      "Content-Type": "application/json",      // 'Content-Type': 'application/x-www-form-urlencoded',  
