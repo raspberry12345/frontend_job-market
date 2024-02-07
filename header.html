@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Praktikumssuche</title>
+</head>
+<body>
+        <nav>
+            <div class="container">
+                <h1><a href="index.php">Praktikum.at</a></h1>
+                <ul>
+                    <li><a href="praktikum.php" class="styleInfoBtn">Praktikum</a></li>
+                    <li><a href="firma.php" class="styleInfoBtn">Firmen</a></li>
+                    
+                </ul>
+                <ul>
+                    <li><a class="btn-style" id="login">Einloggen</a></li>
+                    <li><a class="btn-style" id="signUp">Registrierung</a></li>
+                </ul>
+            </div>
+        </nav>
+        <dialog id="modalSignUp">
+            <div class="modalContainer">
+                <div>
+                    <h2 class="modalHeading">Registrierung     <div id="closeModal">X</div></h2>
+                    <p id="warning"></p>
+                
+                </div>
+                <div class="chooseUser">
+                    <button id="praktikantBtn">Praktikant</button>
+                    <button id="companyBtn">Firma</button>
+                </div>
+                <div class="formContainer">
+                    <form action="createMember.php" id="form" autocomplete="on">
+                        <input type="email" placeholder="E-mail" class="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                        <input type="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Das Passwort muss aus mindestens einer Zahl einem Kleinbuchstaben und einem Großbuchstaben bestehen. Das Passwort muss aus mindestens 8 oder mehr Zeichen bestehen" required>
+                        <input type="hidden" name="">
+                        <input type="submit" value="Abschicken" class="submitBtn">
+                        <br>
+                        <label for="checkbox">Meine Daten verarbeiten</label>
+                        <br>
+                        <label class="switch" >
+                        <input type="checkbox" id="checkbox">
+                        <span class="slider round"></span>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+        <dialog id="modalLogin">
+            <div class="modalContainer">
+                <div>
+                    <h2 class="modalHeading">Login     <div id="closeModalLogin">X</div></h2>
+                </div>
+                <div class="formContainer" id="formContainer">
+                    <form action="login.php"id="formLogin" autocomplete="on" method="post">
+                        <input type="email" placeholder="E-mail" name="email" class="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                        <input type="password" placeholder="Password" name="password" >
+                        <input type="submit" class="submitBtn" value="Anmelden">
+                    </form>
+                </div>
+            </div>
+        </dialog>

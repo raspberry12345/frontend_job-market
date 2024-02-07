@@ -1,0 +1,35 @@
+input{
+    border: 2px solid #3498db;
+    width: 80%;
+    font-size: 2rem;
+}
+label{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+textarea{
+    border: 2px solid #3498db;
+    font-size: 2rem;
+    width: 80%;
+}
+#submitBtn{
+    background-color: #27ae60;
+    color: white;
+}
+.main-section{
+    display: block;
+}
+#searchNavBtn{
+    background-color: #27ae60;
+    color: white;
+}
+.showAllInserat{
+    display: none;
+}
+.adjustment{
+    display: none;
+}
+.applicant{
+    display: none;
+}
