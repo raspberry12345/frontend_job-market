@@ -7,6 +7,14 @@ const searchContainer = document.querySelector(".main-section")
 const showAllInserat = document.querySelector(".showAllfavorite")
 const applicant = document.querySelector(".applications")
 const adjustment = document.querySelector(".applicationDocuments")
+const url = new URL('http://localhost:8080/api/favorite')
+if (document.getElementById("email") != null) {
+  let email = document.getElementById("email").innerText
+  console.log(email)
+  email = email.replace(" ", "")
+  
+  url.searchParams.append('email', email )
+}
 
 searchBtn.addEventListener("click", ()=>{
     //show active button
@@ -51,8 +59,8 @@ showFavoriteBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
 
     //main-content
-    fetch('http://localhost:8080/api/favorite'+"?email="+email, {
-        method: 'GET',
+    fetch(url, {
+        method: 'GET'
         
       })
       .then(response =>  response.text())
