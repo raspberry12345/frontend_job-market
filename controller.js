@@ -42,14 +42,21 @@ if (document.getElementById("5") != null) {
         fetchfunction(e.target.value)
     })
 }
-
+//funktioniert
 const fetchfunction = function(index) {
-    fetch('http://localhost:8080/api/favorite?id='+index+"&email="+email.innerText.replace(" ", ""),{
-        
-        mode:'no-cors',
-        method: 'get',
-        url: `http://localhost:8080`,
-        credentials: 'include'
+   const requestData = {
+    id: "",
+    employee_email: email.innerText.replace(" ", ""),
+    internship_id: index
+}; 
+   fetch('http://localhost:8082/favorites/create',{
+         
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+       url: `http://localhost:8082`
     } )
     
 }
