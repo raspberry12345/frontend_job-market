@@ -94,8 +94,16 @@
             <input type="submit" id="submitBtn" value="Abschicken">
         </form>
     </div>     
-    <div class="showAllInserat">
-        <h1>Meine Inserate</h1>
+    <div class="showAllInserat dbOutput">
+    <h2 class="jobTitle"></h2>
+        <p><strong>Anforderungen</strong></p>
+        <p class="requirements"></p>
+        <p><strong>Aufgabenbereich</strong></p>
+        <p class="responsibility"></p>
+        <p><strong>Benefits</strong></p>
+        <p class="benefits"></p>
+        <p><strong>Bezahlung</strong></p>
+        <p class="salary"></p>
     </div>
 
     <div class="applicant">

@@ -153,12 +153,30 @@ mail
                 }
             ?>
     </div>
-    <div class="showAllfavorite">
-        <h2>Merkliste</h2>
+    <div class="showAllfavorite dbOutput">
+        
+        <h2 class="jobTitle"></h2>
+        <p><strong>Anforderungen</strong></p>
+        <p class="requirements"></p>
+        <p><strong>Aufgabenbereich</strong></p>
+        <p class="responsibility"></p>
+        <p><strong>Benefits</strong></p>
+        <p class="benefits"></p>
+        <p><strong>Bezahlung</strong></p>
+        <p class="salary"></p>
     </div>
-
+    
     <div class="applications">
         <h2>Bewerbungen</h2>
+        <h2 class="jobTitle"></h2>
+        <p><strong>Anforderungen</strong></p>
+        <p class="requirements"></p>
+        <p><strong>Aufgabenbereich</strong></p>
+        <p class="responsibility"></p>
+        <p><strong>Benefits</strong></p>
+        <p class="benefits"></p>
+        <p><strong>Bezahlung</strong></p>
+        <p class="salary"></p>
     </div>
 
     <div class="applicationDocuments">

@@ -10,9 +10,7 @@ const adjustment = document.querySelector(".applicationDocuments")
 const url = new URL('http://localhost:8080/api/favorite')
 if (document.getElementById("email") != null) {
   let email = document.getElementById("email").innerText
-  console.log(email)
   email = email.replace(" ", "")
-  
   url.searchParams.append('email', email )
 }
 
