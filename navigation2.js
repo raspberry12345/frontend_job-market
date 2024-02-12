@@ -7,13 +7,12 @@ const searchContainer = document.querySelector(".main-section")
 const showAllInserat = document.querySelector(".showAllfavorite")
 const applicant = document.querySelector(".applications")
 const adjustment = document.querySelector(".applicationDocuments")
-const url = new URL('http://localhost:8080/api/favorite')
-if (document.getElementById("email") != null) {
-  let email = document.getElementById("email").innerText
-  email = email.replace(" ", "")
-  url.searchParams.append('email', email )
-}
+let email;
 
+if (document.getElementById("email") != null) {
+  email = document.getElementById("email").innerText  
+}
+const url = new URL('http://localhost:8082/favorites/getFavoritesById/'+email)
 searchBtn.addEventListener("click", ()=>{
     //show active button
     searchBtn.style.backgroundColor = "#27ae60"
@@ -61,7 +60,7 @@ showFavoriteBtn.addEventListener("click", ()=>{
         method: 'GET'
         
       })
-      .then(response =>  response.text())
+      .then(response =>  response.json())
       .then(data => {
         console.log(data);
       })

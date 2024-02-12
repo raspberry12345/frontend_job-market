@@ -51,11 +51,11 @@ showFavoriteBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
 
     //main-content
-    fetch('http://localhost:8080/api/praktikum'+"?email="+email, {
+    fetch('http://localhost:8082/favorites/getFavoritesById'+"?email="+email, {
         method: 'GET',
         
       })
-      .then(response =>  response.text())
+      .then(response =>  response.json())
       .then(data => {
         console.log(data);
       })
