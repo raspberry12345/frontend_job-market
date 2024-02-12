@@ -7,12 +7,12 @@ const searchContainer = document.querySelector(".main-section")
 const showAllInserat = document.querySelector(".showAllfavorite")
 const applicant = document.querySelector(".applications")
 const adjustment = document.querySelector(".applicationDocuments")
-let email;
+let email2;
 
 if (document.getElementById("email") != null) {
-  email = document.getElementById("email").innerText  
+  email2 = document.getElementById("email").innerText  
 }
-const url = new URL('http://localhost:8082/favorites/getFavoritesById/'+email)
+const url = new URL('http://localhost:8082/favorites/getFavoritesById/'+email2)
 searchBtn.addEventListener("click", ()=>{
     //show active button
     searchBtn.style.backgroundColor = "#27ae60"
@@ -62,7 +62,49 @@ showFavoriteBtn.addEventListener("click", ()=>{
       })
       .then(response =>  response.json())
       .then(data => {
-        console.log(data);
+        
+        for (let index = 0; index < data.length; index++) {
+          const newDiv = document.createElement("div");
+          const newH2 = document.createElement("h2");
+          const newP1 = document.createElement("p");
+          const newP2 = document.createElement("p")
+          const newP3 = document.createElement("p")
+          const newP4 = document.createElement("p")
+          const newP5 = document.createElement("p")
+          const newP6 = document.createElement("p")
+          const newP7 = document.createElement("p")
+          const newP8 = document.createElement("p")
+          
+
+          newDiv.classList.add("dbOutput")
+          newH2.classList.add("jobTitle")
+          newP1.classList.add("strong")
+          newP3.classList.add("strong")
+          newP5.classList.add("strong")
+          newP7.classList.add("strong")
+          newH2.innerText = data[index]['internshipEntity']['job_title']
+          newP1.innerText = "Anforderungen"
+          newP2.innerText = data[index]['internshipEntity']['requirements']
+          newP3.innerText = "Aufgabenbereich"
+          newP4.innerText = data[index]['internshipEntity']['responsibility']
+          newP5.innerText = "Benefits"
+          newP6.innerText = data[index]['internshipEntity']['benefits']
+          newP7.innerText = "Bezahlung"
+          newP8.innerText = data[index]['internshipEntity']['salary'] + " Brutto/Monat"
+          newDiv.appendChild(newH2)
+          newDiv.appendChild(newP1)
+          newDiv.appendChild(newP2)
+          newDiv.appendChild(newP3)
+          newDiv.appendChild(newP4)
+          newDiv.appendChild(newP5)
+          newDiv.appendChild(newP6)
+          newDiv.appendChild(newP7)
+          newDiv.appendChild(newP8)
+          
+          showAllInserat.appendChild(newDiv)
+          
+        }
+        
       })
       .catch(error => {
         console.error('Error:', error);

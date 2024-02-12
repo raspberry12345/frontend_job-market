@@ -153,17 +153,8 @@ mail
                 }
             ?>
     </div>
-    <div class="showAllfavorite dbOutput">
-        
-        <h2 class="jobTitle"></h2>
-        <p><strong>Anforderungen</strong></p>
-        <p class="requirements"></p>
-        <p><strong>Aufgabenbereich</strong></p>
-        <p class="responsibility"></p>
-        <p><strong>Benefits</strong></p>
-        <p class="benefits"></p>
-        <p><strong>Bezahlung</strong></p>
-        <p class="salary"></p>
+    <div class="showAllfavorite">
+       
     </div>
     
     <div class="applications">

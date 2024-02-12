@@ -17,7 +17,7 @@
                         echo "<p>".$result[$i]['salary']."€ Brutto/Monat</p>";
                         if (!empty($_SESSION['email'])) {
                             # code...
-                            echo "<button id=$index value=$value>Merken</button>";
+                            echo "<button id=$index value=$value >Merken</button>";
                             echo "<button class=$index value=$value>Bewerben</button>";
                         }
                         
