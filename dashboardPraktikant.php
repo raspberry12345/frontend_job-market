@@ -158,20 +158,15 @@ mail
     </div>
     
     <div class="applications">
-        <h2>Bewerbungen</h2>
-        <h2 class="jobTitle"></h2>
-        <p><strong>Anforderungen</strong></p>
-        <p class="requirements"></p>
-        <p><strong>Aufgabenbereich</strong></p>
-        <p class="responsibility"></p>
-        <p><strong>Benefits</strong></p>
-        <p class="benefits"></p>
-        <p><strong>Bezahlung</strong></p>
-        <p class="salary"></p>
+        
     </div>
 
     <div class="applicationDocuments">
         <h2>Bewerbungsunterlagen</h2>
+        <p class="headingApplicationDocument"><strong>Lebenslauf</strong></p>
+        <input type="file">
+        <p class="headingApplicationDocument"><strong>Motivationsschreiben</strong></p>
+        <input type="file">
     </div>
     <script src="controller.js"></script>
     <script src="navigation2.js"></script>

@@ -78,7 +78,7 @@ if (document.querySelector(".a2") != null) {
     const secondBtn = document.querySelector(".a2")
     secondBtn.addEventListener("click", (e)=>{
         if (e.target.innerText === "Bewerben" ) {
-            console.log("hallo")
+            
             e.target.innerText = 'Beworben'
             fetchApplicationFunction(e.target.value)
         }

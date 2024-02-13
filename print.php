@@ -1,7 +1,8 @@
 <?php
                     for ($i=0; $i < count($result); $i++) { 
                         $index = $i +1;
-                        $index = "a".$index;
+
+                        
                         $value = $result[$i]['id'];
                         echo "<div class='dbOutput'>";
                         echo "<h2>".$result[$i]['job_title']."</h2>";
@@ -19,6 +20,7 @@
                         if (!empty($_SESSION['email'])) {
                             # code...
                             echo "<button id=$index value=$value >Merken</button>";
+                            $index = "a".$index;
                             echo "<button class=$index value=$value>Bewerben</button>";
                         }
                         
