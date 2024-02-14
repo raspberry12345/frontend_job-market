@@ -10,9 +10,9 @@ const bezahlung = document.getElementById("bezahlung")
 */
 
 
-
+let email
 if (document.getElementById("email") != null) {
-  const email = document.getElementById("email")
+  email = document.getElementById("email")
 }
 
 
@@ -27,9 +27,12 @@ form.addEventListener("submit", (e)=>{
     
     console.log()
     const formData = new FormData(form)
-    const url = 'http://localhost:8080/api/praktikum';
+    const url = 'http://localhost:8082/internships/create';
     
-    formData.append("email", email.innerText)
+    formData.append("employer_email", email.innerText)
+    formData.append("id", "")
+    formData.append("created_at", "")
+    //funktioniert
 fetch(url, {
   method: 'POST',
   headers: {      "Content-Type": "application/json",      // 'Content-Type': 'application/x-www-form-urlencoded',  
@@ -43,9 +46,7 @@ fetch(url, {
   }
   return response.text();
 })
-.then(data => {
-  console.log('Success:', data);
-})
+
 .catch(error => {
   console.error('Error:', error);
 });

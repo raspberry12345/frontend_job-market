@@ -40,7 +40,7 @@
         <form id="form">
             <label for="branche">Branche</label>
             <br>
-            <select name="branche" id="inputBranche" >
+            <select name="industry" id="inputBranche">
                         
                 <option value="agrar">Agrarwirtschaft</option>
                 <option value="bau">Bau</option>
@@ -70,19 +70,19 @@
             <br>
             <label for="berufsbezeichnung">Berufsbezeichnung</label>
             <br>
-            <input type="text" name="berufsbezeichnung" id="berufsbezeichnung">
+            <input type="text" name="job_title" id="berufsbezeichnung">
             <br>
             <label for="bezirk">Bezirk</label>
             <br>
-            <input type="text" name="bezirk" id="bezirk">
+            <input type="text" name="district" id="bezirk">
             <br>
             <label for="anforderungen">Anforderungen</label>
             <br>
-            <textarea name="anforderungen" id="anforderungen" cols="15" rows="10"></textarea>
+            <textarea name="requirements" id="anforderungen" cols="15" rows="10"></textarea>
             <br>
             <label for="aufgabenbereich">Aufgabenbereich</label>
             <br>
-            <textarea name="aufgabenbereich" id="aufgabenbereich" cols="15" rows="10"></textarea>
+            <textarea name="responsibility" id="aufgabenbereich" cols="15" rows="10"></textarea>
             <br>
             <label for="benefits">Benefits</label>
             <br>
@@ -90,20 +90,12 @@
             <br>
             <label for="bezahlung">Bezahlung</label>
             <br>
-            <input type="text" name="bezahlung" id="bezahlung" placeholder="€ Brutto/Monat">
+            <input type="text" name="salary" id="bezahlung" placeholder="€ Brutto/Monat">
             <input type="submit" id="submitBtn" value="Abschicken">
         </form>
     </div>     
-    <div class="showAllInserat dbOutput">
-    <h2 class="jobTitle"></h2>
-        <p><strong>Anforderungen</strong></p>
-        <p class="requirements"></p>
-        <p><strong>Aufgabenbereich</strong></p>
-        <p class="responsibility"></p>
-        <p><strong>Benefits</strong></p>
-        <p class="benefits"></p>
-        <p><strong>Bezahlung</strong></p>
-        <p class="salary"></p>
+    <div class="showAllInserat">
+    
     </div>
 
     <div class="applicant">
