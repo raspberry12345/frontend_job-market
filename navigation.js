@@ -149,6 +149,24 @@ showApplicationBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
 
     dropDomApplication()
+    fetch('http://localhost:8082/applications/getAllApplications').then(response =>  response.json())
+    .then(data => {
+      const newH2 = document.createElement("h2")
+      newH2.classList.add("jobTitle")
+      newH2.innerText = 'Bewerber'
+      applicant.appendChild(newH2)
+      for (let index = 0; index < data.length; index++) {
+
+
+        if (email.innerText === data[0]['internshipEntity']['employerEntity']['email']) {
+          
+          const newP1 = document.createElement("p")
+          newP1.innerText = "Email: "+data[index]['userEntity']['email']+" "+"Berufsbezeichnung: "+data[index]['internshipEntity']['job_title']
+          applicant.appendChild(newP1)
+          
+        }
+      }
+    })
 })
 
 applicationDocuments.addEventListener("click", ()=>{

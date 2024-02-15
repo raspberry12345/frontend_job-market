@@ -99,7 +99,7 @@
     </div>
 
     <div class="applicant">
-        <h1>Bewerber</h1>
+        
     </div>
 
     <div class="adjustment">

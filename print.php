@@ -1,7 +1,8 @@
 <?php
                     for ($i=0; $i < count($result); $i++) { 
                         $index = $i +1;
-
+                        $checkFavorite =false;
+                        $checkApplication = false;
                         
                         $value = $result[$i]['id'];
                         echo "<div class='dbOutput'>";
@@ -18,10 +19,37 @@
                         echo "<p style='color:darkblue;'><strong>Bezahlung:</strong></p>";
                         echo "<p>".$result[$i]['salary']."€ Brutto/Monat</p>";
                         if (!empty($_SESSION['email'])) {
-                            # code...
-                            echo "<button id=$index value=$value >Merken</button>";
-                            $index = "a".$index;
-                            echo "<button class=$index value=$value>Bewerben</button>";
+                           
+                           if(count($favorites)!= 0){
+                                for ($s=0; $s <count($favorites) ; $s++) { 
+                                    if ($favorites[$s]['internship_id'] == $value) {
+                                        echo "<button id=$index value=$value >Gemerkt</button>";
+                                        $checkFavorite = true;
+                                    }
+                                }
+                            }
+                            
+                            if (!$checkFavorite) {
+                                echo "<button id=$index value=$value >Merken</button>";
+                            }
+
+                            if(count($application)!= 0){
+                                for ($a=0; $a <count($application) ; $a++) { 
+                                    if ($application[$a]['internship_id'] == $value) {
+                                        $index = "a".$index;
+                                        echo "<button class=$index value=$value>Beworben</button>";
+                                        $checkApplication = true;
+                                    }
+                                }
+                            }
+                            
+                            if (!$checkApplication) {
+                                $index = "a".$index;
+                                echo "<button class=$index value=$value>Bewerben</button>";
+                            }
+                            
+                            
+                            
                         }
                         
                         echo "</div>";

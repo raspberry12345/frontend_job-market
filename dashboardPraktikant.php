@@ -105,7 +105,7 @@ mail
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $countTotal = ceil($result[0]["count"]/5);
-                            $stmt = $pdo->prepare('SELECT * FROM `internships` where industy=:branche and district=:district ORDER BY `id` DESC ');
+                            $stmt = $pdo->prepare('SELECT * FROM `internships` where industry=:branche and district=:district ORDER BY `id` DESC ');
                             $stmt->bindValue(':branche', $_GET['branche']);
                             $stmt->bindValue(':district', $_GET['district']);
                            
@@ -141,6 +141,16 @@ mail
                     }
                     $stmt->execute();
                     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $stmt = $pdo->prepare('SELECT * FROM `favorites` where employee_email=:email');
+                    $stmt->bindValue(':email', $_SESSION['email']);
+                    $stmt->execute();
+                    $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $stmt = $pdo->prepare('SELECT * FROM `applications` where employee_email=:email');
+                    $stmt->bindValue(':email', $_SESSION['email']);
+                    $stmt->execute();
+                    $application = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    //var_dump($favorites[0]['internship_id']);
+                    //var_dump($result);
                     include "print.php";
                     
                     echo "<ul class='pagination'>";

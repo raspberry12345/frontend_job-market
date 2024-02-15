@@ -10,11 +10,16 @@ const adjustment = document.querySelector(".applicationDocuments")
 let email2;
 
 function deleteFavorite(){
+  //check clicked favorite-btn
   
+  
+
+
   fetch('http://localhost:8082/favorites/delete/'+event.target.value,{
     method: 'Delete'
   })
   event.target.parentElement.remove()
+  location.replace("dashboardPraktikant.php");
 }
 function deleteApplication(){
   
@@ -22,6 +27,7 @@ function deleteApplication(){
     method: 'Delete'
   })
   event.target.parentElement.remove()
+  location.replace("dashboardPraktikant.php");
 }
 
 function dropDomFavorite(){
@@ -75,7 +81,9 @@ searchBtn.addEventListener("click", ()=>{
     dropDomFavorite()
     //delete application-dom
     dropDomApplication()
-})
+
+    
+    })
 
 showFavoriteBtn.addEventListener("click", ()=>{
     //show active button
@@ -194,7 +202,7 @@ showApplicationBtn.addEventListener("click", ()=>{
     .then(response =>  response.json())
     .then(data => {
       
-      console.log(data)
+      
       for (let index = 0; index < data.length; index++) {
         const newDiv = document.createElement("div");
         const newH2 = document.createElement("h2");
