@@ -19,7 +19,7 @@ function deleteFavorite(){
     method: 'Delete'
   })
   event.target.parentElement.remove()
-  location.replace("dashboardPraktikant.php");
+  
 }
 function deleteApplication(){
   
@@ -27,7 +27,7 @@ function deleteApplication(){
     method: 'Delete'
   })
   event.target.parentElement.remove()
-  location.replace("dashboardPraktikant.php");
+  
 }
 
 function dropDomFavorite(){
@@ -57,6 +57,7 @@ if (document.getElementById("email") != null) {
 }
 const url = new URL('http://localhost:8082/favorites/getFavoritesById/'+email2)
 searchBtn.addEventListener("click", ()=>{
+    /*
     //show active button
     searchBtn.style.backgroundColor = "#27ae60"
     searchBtn.style.color = "white"
@@ -81,7 +82,8 @@ searchBtn.addEventListener("click", ()=>{
     dropDomFavorite()
     //delete application-dom
     dropDomApplication()
-
+    */
+    location.replace("dashboardPraktikant.php");
     
     })
 

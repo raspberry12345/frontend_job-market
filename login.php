@@ -14,10 +14,10 @@
                 
                 $password = $result[0]['password'];
                 if (password_verify($_POST['password'], $password)) {
-                    echo "<h1 style='text-align:center'>Login Erfolgreich</h1>";
+                    //echo "<h1 style='text-align:center'>Login Erfolgreich</h1>";
                     $access = true;
                     $_SESSION['email'] = $_POST['email'];
-                    header("Refresh:2; url=dashboardArbeitgeber.php");
+                    header("Refresh:1; url=dashboardArbeitgeber.php");
                     
                 }
             }
@@ -29,16 +29,17 @@
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (!empty($result[0]['password'])) {
                 if (password_verify($_POST['password'], $result[0]['password'])) {
-                    echo "<h1 style='text-align:center'>Login Erfolgreich</h1>";
+                    //echo "<h1 style='text-align:center'>Login Erfolgreich</h1>";
                     $access = true;
                     $_SESSION['email'] = $_POST['email'];
-                    header("Refresh:2; url=dashboardPraktikant.php");
+                    header("Refresh:1; url=dashboardPraktikant.php");
                 }
             }
             
             if (!$access) {
                 # code...
                 echo "<h1 style='text-align:center'>Zugriff Verweigert</h1>";
+                header("Refresh:1; url=index.php");
             }
             
 

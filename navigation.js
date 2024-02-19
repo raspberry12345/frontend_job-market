@@ -18,12 +18,29 @@ function dropDomApplication(){
     
   }
 }
+
+function dropDomEmployee(){
+  if (document.querySelectorAll(".dbOutput") != null) {
+    
+    while (applicant.firstChild != null) {
+      applicant.lastChild.remove()
+    }
+    
+    
+  }
+}
+
+let internhip_id = 15
 function deleteFavorite(){
+  console.log(email.innerText)
+  
+  
   
   fetch('http://localhost:8082/internships/delete/'+event.target.value,{
     method: 'Delete'
   })
   event.target.parentElement.remove()
+  
 }
 
 searchBtn.addEventListener("click", ()=>{
@@ -147,7 +164,7 @@ showApplicationBtn.addEventListener("click", ()=>{
     showAllInserat.style.display = 'none'
     applicant.style.display = 'block'
     adjustment.style.display = 'none'
-
+    dropDomEmployee()
     dropDomApplication()
     fetch('http://localhost:8082/applications/getAllApplications').then(response =>  response.json())
     .then(data => {
