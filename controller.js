@@ -83,7 +83,7 @@ const fetchFavoriteFunction = function(index) {
     employee_email: email1.innerText,
     internship_id: index
 }; 
-   fetch('http://localhost:8082/favorites/create',{
+   fetch('http://localhost:8080/favorites/create',{
          
         method: 'POST',
         headers: {
@@ -113,7 +113,7 @@ const fetchApplicationFunction = function(index) {
      internship_id: index,
      created_at: ""
  }; 
-    fetch('http://localhost:8082/applications/create',{
+    fetch('http://localhost:8080/applications/create',{
           
          method: 'POST',
          headers: {

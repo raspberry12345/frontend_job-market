@@ -36,7 +36,7 @@ function deleteFavorite(){
   
   
   
-  fetch('http://localhost:8082/internships/delete/'+event.target.value,{
+  fetch('http://localhost:8080/internships/delete/'+event.target.value,{
     method: 'Delete'
   })
   event.target.parentElement.remove()
@@ -88,7 +88,7 @@ showFavoriteBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
     
     //main-content
-    fetch('http://localhost:8082/internships/getInternshipsByEmail/'+email.innerText, {
+    fetch('http://localhost:8080/internships/getInternshipsByEmail/'+email.innerText, {
         method: 'GET',
         
       })
@@ -166,7 +166,7 @@ showApplicationBtn.addEventListener("click", ()=>{
     adjustment.style.display = 'none'
     dropDomEmployee()
     dropDomApplication()
-    fetch('http://localhost:8082/applications/getAllApplications').then(response =>  response.json())
+    fetch('http://localhost:8080/applications/getAllApplications').then(response =>  response.json())
     .then(data => {
       const newH2 = document.createElement("h2")
       newH2.classList.add("jobTitle")

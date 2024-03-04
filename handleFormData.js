@@ -18,7 +18,7 @@ form.addEventListener("submit", (e)=>{
     
     console.log()
     const formData = new FormData(form)
-    const url = 'http://localhost:8082/internships/create';
+    const url = 'http://localhost:8080/internships/create';
     
     formData.append("employer_email", email.innerText)
     formData.append("id", "")

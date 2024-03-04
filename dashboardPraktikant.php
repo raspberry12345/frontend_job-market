@@ -173,10 +173,17 @@ mail
 
     <div class="applicationDocuments">
         <h2>Bewerbungsunterlagen</h2>
+        <form action="" id="fileForm" enctype="multipart/form-data">
         <p class="headingApplicationDocument"><strong>Lebenslauf</strong></p>
-        <input type="file">
+        <input type="file" name="cv">
         <p class="headingApplicationDocument"><strong>Motivationsschreiben</strong></p>
-        <input type="file">
+        <input type="file" name="motivation">
+        <input type="submit">
+        </form>
+        <div id="viewerContainer">
+            <h2>Lebenslauf</h2>
+        </div>
+        
     </div>
     <script src="controller.js"></script>
     <script src="navigation2.js"></script>

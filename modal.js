@@ -21,9 +21,6 @@ login.addEventListener("click", () => {
 closeModalSignUp.addEventListener("click", () => {
     chooseUser.style.display = "flex";
     formContainer.style.display = "none";
-    // Assuming you have a 'warning' element declared somewhere in your HTML
-    // and assigned to the 'warning' variable.
-    // If not, you should declare it before using it.
     const warning = document.getElementById("warning");
     warning.innerText = " ";
     modalSignUp.close();
@@ -31,9 +28,6 @@ closeModalSignUp.addEventListener("click", () => {
 closeModalLogin.addEventListener("click", () => {
     chooseUser.style.display = "flex";
     formContainer.style.display = "none";
-    // Assuming you have a 'warning' element declared somewhere in your HTML
-    // and assigned to the 'warning' variable.
-    // If not, you should declare it before using it.
     const warning = document.getElementById("warning");
     warning.innerText = " ";
     modalLogin.close();

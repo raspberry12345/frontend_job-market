@@ -9,13 +9,13 @@ const applicant = document.querySelector(".applications")
 const adjustment = document.querySelector(".applicationDocuments")
 let email2;
 
+
+
+const form = document.getElementById("fileForm")
+
 function deleteFavorite(){
   //check clicked favorite-btn
-  
-  
-
-
-  fetch('http://localhost:8082/favorites/delete/'+event.target.value,{
+  fetch('http://localhost:8080/favorites/delete/'+event.target.value,{
     method: 'Delete'
   })
   event.target.parentElement.remove()
@@ -23,7 +23,7 @@ function deleteFavorite(){
 }
 function deleteApplication(){
   
-  fetch('http://localhost:8082/applications/delete/'+event.target.value,{
+  fetch('http://localhost:8080/applications/delete/'+event.target.value,{
     method: 'Delete'
   })
   event.target.parentElement.remove()
@@ -55,7 +55,7 @@ function dropDomApplication(){
 if (document.getElementById("email") != null) {
   email2 = document.getElementById("email").innerText  
 }
-const url = new URL('http://localhost:8082/favorites/getFavoritesById/'+email2)
+const url = new URL('http://localhost:8080/favorites/getFavoritesById/'+email2)
 searchBtn.addEventListener("click", ()=>{
     /*
     //show active button
@@ -197,7 +197,7 @@ showApplicationBtn.addEventListener("click", ()=>{
     dropDomFavorite()
 
     //main-content
-    fetch('http://localhost:8082/applications/getApplicationsById/'+email2, {
+    fetch('http://localhost:8080/applications/getApplicationsById/'+email2, {
       method: 'GET'
       
     })
@@ -286,4 +286,42 @@ applicationDocumentsBtn.addEventListener("click", ()=>{
 
     //delete application-dom
     dropDomApplication()
+
+    //start fetch files to backend if submit-btn is clicked
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault()
+      const formData = new FormData(form)
+      formData.append("email", email2)
+      fetch("controllerDocument.php",{
+        method: 'POST',
+        header: {
+          "Accept": "application/octet-stream"
+        },
+        body: formData
+      })
+      setTimeout(()=>{
+        fetch("showCv.php?email="+email2, {
+          method: 'GET'
+        }).then((res) => 
+          
+          res.arrayBuffer()
+        )
+        .then(arrayBuffer => {
+          
+          const uint8Array = new Uint8Array(arrayBuffer);
+          
+          const blob = new Blob([uint8Array], { type: 'application/pdf' });
+          
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'cv';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }
+        )
+      }, 4000)
+    })
 })
